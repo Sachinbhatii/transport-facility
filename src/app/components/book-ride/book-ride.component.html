@@ -1,0 +1,8 @@
+<div class="book-form">
+  <label>Employee ID to book:</label>
+  <input formControlName="employeeId"
+         [formControl]="form.controls['employeeId']" />
+  <div style="margin-top:8px">
+    <button (click)="submit()">Confirm Booking</button>
+  </div>
+</div>

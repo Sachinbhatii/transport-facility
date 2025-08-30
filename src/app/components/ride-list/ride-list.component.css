@@ -1,0 +1,38 @@
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.rides {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ride-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.book-area {
+  padding: 8px;
+  background: #fff8e1;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  background: #388e3c;
+  color: #fff;
+  cursor: pointer;
+}

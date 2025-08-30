@@ -1,0 +1,41 @@
+<h2>Available Rides</h2>
+
+<div class="filters">
+  <label>Vehicle Type:
+    <select [formControl]="filterForm.controls['vehicleType']"
+            (change)="applyFilters()">
+      <option *ngFor="let v of vehicleTypes"
+              [value]="v">{{v}}</option>
+    </select>
+  </label> <label>Time (for matching ±60 min):
+    <input type="time"
+           [formControl]="filterForm.controls['time']"
+           (change)="applyFilters()" />
+  </label>
+
+</div>
+<div *ngIf="filtered.length === 0">No rides match your filter/time.</div>
+<ul class="rides">
+  <li *ngFor="let ride of filtered">
+    <div class="ride-row">
+      <div>
+        <strong>{{ ride.vehicleType }} - {{ ride.vehicleNo }}</strong>
+        <div>{{ ride.pickupPoint }} → {{ ride.destination }}</div>
+        <div>Time: {{ formatTime(ride.timeISO) }}</div>
+        <div>Vacant seats: {{ ride.vacantSeats }}</div>
+        <div>Added by: {{ ride.employeeId }}</div>
+      </div>
+      <div>
+        <button (click)="selectRide(ride.id)">Book</button>
+      </div>
+    </div>
+
+    <div *ngIf="selectedRideId === ride.id"
+         class="book-area">
+      <app-book-ride [ride]="ride"
+                     (booked)="handleBooked($event)"></app-book-ride>
+    </div>
+
+  </li>
+</ul>
+<div class="message">{{message}}</div>

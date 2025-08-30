@@ -1,0 +1,19 @@
+.book-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+input {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+}
