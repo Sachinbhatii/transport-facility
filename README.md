@@ -1,27 +1,62 @@
-# TransportFacility
+# 🚖 Transport Facility Management (Angular Assignment)
+A simple Angular web application to manage employee transport rides.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+Employees can **add a ride, search/filter rides, and book rides** for the current day.
 
-## Development server
+This app was built as per the assignment requirements:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* **No CSS frameworks** used (only plain CSS).
+* **Angular 15+** with Reactive Forms.
+* **Unit Tests** included (Jasmine + Karma).
+* Data stored in memory via a service (no backend).
 
-## Code scaffolding
+---
+## 📌 Features
+1. **Add Ride**
+   * Employee ID (unique per ride, required)
+   * Vehicle Type (Car / Bike)
+   * Vehicle Number (required)
+   * Vacant Seats (required, >0)
+   * Time (current day only, required)
+   * Pickup Point (required)
+   * Destination (required)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Book Ride**
+   * Employee enters their ID to book a ride.
+   * Rules: 
+      * Cannot book own ride.
+      * Cannot book same ride twice.
+      * Vacant seats decrement when booking succeeds.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Search & Filter**
+   * Filter by vehicle type (Car, Bike, All).
+   * Show rides within **±60 minutes** of selected time.
 
-## Running unit tests
+4. **Validation & Error Handling**
+   * Mandatory fields enforced.
+   * Unique ride creation per Employee ID.
+   * Current day validation for rides.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. **Unit Testing**
+   * Covers RideService (add, book logic).
+   * Covers AddRideComponent validations.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+src/app/
+├── components/
+│   ├── add-ride/          # Create new rides
+│   ├── book-ride/         # Book existing rides
+│   └── ride-list/         # Display and filter rides
+├── models/
+│   └── ride.model.ts      # Ride data model
+└── services/
+    └── ride.service.ts    # Ride management service
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📸 Screenshot
+
+![Transport Facility App](./screenshot.png)
+
+
+
